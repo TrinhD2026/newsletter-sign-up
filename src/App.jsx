@@ -8,15 +8,25 @@ function App() {
 
     return (
         <>
+            <h1 hidden aria-hidden="true">Newsletter Subsription</h1>
             <div className="main-container">
-                <div className="subscribe-container">
-                    <picture>
-                        <source srcset={mobileSignUpImg} media="(max-width: 48rem)" />
-                        <source srcset={tabletSignUpImg} media="(max-width: 56rem)" />
-                        <source srcset={desktopSignUpImg} media="(min-width: 56rem)" />
-                        <img src={mobileSignUpImg} className="sign-up-img" alt="sign up logo"/>
-                    </picture>
-                </div>
+                <form className="subscribe-container">
+                    <div className="background-container"></div>
+                    <div className="info-container">
+                        <h2>Stay Updated!</h2>
+                        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+                        <ul className="list">
+                            <li className="list-item">Product discovery and building what matters</li>
+                            <li className="list-item">Measuring to ensure updates are a success</li>
+                            <li className="list-item">And much more!</li>
+                        </ul>
+                        <div className="input-cotainer">
+                            <label className="label" id="email-label" htmlFor="email">Email address</label>
+                            <input className="input email" type="email" id="email" />
+                        </div>
+                        <button type="submit" className="submit-btn">Subsrcibe to monthly newsletter</button>
+                    </div>
+                </form>
                 <div className="confirm-container">
 
                 </div>
