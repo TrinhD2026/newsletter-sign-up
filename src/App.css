@@ -1,5 +1,6 @@
 :root {
     --red: hsl(4, 100%, 67%);
+    --red-light: hsl(4, 100%, 90%);
     --blue-800: hsl(234, 29%, 20%);
     --blue-700: hsl(235, 18%, 26%);
     --grey: hsl(0, 0%,58%);
@@ -74,10 +75,11 @@ h1, h2 {
 }
 
 .info-container {
+    height: 70%;
     display: flex;
     flex-direction: column;
     padding: 0 2rem 2rem 2rem;
-    gap: 3rem;
+    justify-content: space-between;
 }
 
 .list{
@@ -104,13 +106,32 @@ h1, h2 {
     width:100%;
 }
 
-.input.email {
+.label-and-error{
+    display: flex;
+    justify-content: space-between;
+}
+
+.email {
     width: 100%;
     height: 4rem;
     border-radius: 0.5rem;
     padding-left: 1rem; 
     font-family: "Roboto-Regular", sans-serif;
     font-size: 1rem;
+}
+
+.error{
+    border: 0.2rem solid var(--red);
+    color: var(--red);
+    background-color: var(--red-light);
+}
+
+.error:focus{
+    border: 0;
+}
+
+.error-message{
+    color: var(--red);
 }
 
 .btn {
@@ -121,6 +142,36 @@ h1, h2 {
     background-color: var(--blue-700);
     color: var(--white);
     font-family: "Roboto-Bold", sans-serif;
+    transition: all 0.3s ease-out;
+}
+
+.btn:hover{
+    background-image: linear-gradient(to right, var(--red), var(--red-light));
+    box-shadow: var(--red) 0.4rem 0.4rem 1rem;
+}
+
+.btn:active, .btn:focus{
+    border: 0;
+}
+
+.confirm-container{
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem 3rem 3rem 3rem;
+    justify-content: space-between;
+}
+
+.confirm-message{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.icon-success{
+    max-inline-size: 4rem;
 }
 
 /*screen resize style*/
@@ -147,10 +198,8 @@ h1, h2 {
     .info-container{
         width: 50%;
         height: 100%;
-        align-items: flex-start;
-        justify-content: center;
+        justify-content: space-between;
         padding: 0;
-        gap: 2rem;
     }
      
     .background-container{
@@ -158,5 +207,14 @@ h1, h2 {
         height: 100%;
         background-image: url("./assets/images/illustration-sign-up-desktop.svg");
         background-position: center center;
+    }
+    .confirm-message{
+        gap: 0.5rem;
+    }
+    .confirm-container{
+        height: auto;
+        padding: 2rem;
+        width: clamp(50rem, 49rem + 2vw, 60rem);
+        gap: 2rem;
     }
 }
